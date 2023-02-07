@@ -1,0 +1,31 @@
+# Input: An undirected graph represented as an adjacency list with n vertices and m edges
+
+# Output: A boolean indicating whether there is a cycle in the graph or not
+
+# Initialize the disjoint-set data structure to represent each vertex as its own set
+for each vertex v in the graph:
+  MakeSet(v)
+
+# Sort the edges in ascending order of their weight
+sort the edges of the graph in ascending order of weight
+
+# Initialize an empty list to store the edges of the minimum spanning tree
+let MST be an empty list
+
+# Iterate over each edge in the sorted list of edges
+for each edge (u, v) in the sorted list of edges:
+  # Find the representative of the set containing u and v
+  root1 = FindSet(u)
+  root2 = FindSet(v)
+
+  # If the representative of the set containing u and v are not the same,
+  # add the edge to the MST and union the two sets
+  if root1 != root2:
+    MST.add(edge)
+    Union(root1, root2)
+  else:
+    # If the representative of the set containing u and v are the same, then there is a cycle
+    return True
+
+# If the loop finishes, then there is no cycle in the graph
+return False
